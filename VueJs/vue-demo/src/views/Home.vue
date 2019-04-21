@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <router-link to="/login">点击登录</router-link>
+    <router-link to="/about">点击关于</router-link>
   </div>
 </template>
 
