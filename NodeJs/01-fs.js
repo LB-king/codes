@@ -1,26 +1,16 @@
 const http = require('http');
 const fs = require('fs');
+// let r = fs.readFileSync('./resource/index.html');
+// console.log(r.toString());
 
-fs.readFile('./01-fs.js',function (err,data) {
-    console.log(err);
-    // console.log(data.toString());
-    // if(err){
-    //     return res.end('404 Not Found.')
-    // }
-})
-
-http.createServer(function(req,res){
-    let url = req.url;
-    if(url === '/'){
-        fs.readFile('./test.txt',function (err,data) {
-            console.log(err);
-            console.log(data);
-            // if(err){
-            //     return res.end('404 Not Found.')
-            // }
-            res.end('data')
-        })
-    }
-}).listen(3000,function () {
+http.createServer(function (req, res) {
+    //异步读取
+    fs.readFile('./resource/index.html', function (err, data) {
+        if (err) {
+            return res.send('404 Not Found.')
+        }
+        res.end(data)
+    })
+}).listen(3000, function () {
     console.log('running....');
 })
