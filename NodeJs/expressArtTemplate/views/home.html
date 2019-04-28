@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<a href="/toAdd">添加新成员</a>
+<table width="60%" border="1">
+    <thead>
+        <td>姓名</td>
+        <td>武力值</td>
+        <td>特长</td>
+        <td colspan="2">操作</td>
+    </thead>
+    {{ each persons }}
+    <tr>
+        <td>{{ $value.name }}</td>
+        <td>{{ $value.power }}</td>
+        <td>{{ $value.describe }}</td>
+        <td><a href="/edit?id={{ $value.id }}">编辑</a></td>
+        <td><a href="/delete?id={{ $value.id }}">删除</a></td>
+    </tr>
+    {{ /each }}
+
+</table>
+</body>
+</html>
