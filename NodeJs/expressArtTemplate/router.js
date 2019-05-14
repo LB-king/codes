@@ -1,8 +1,10 @@
 const express = require('express')
 const fs = require('fs')
+const path = require('path')
 let router = express.Router()
 
-let filePath = './data/persons.json'
+let filePath = path.join(__dirname,'./data/persons.json')
+console.log(filePath)
 //初始页面
 router.get('/', function (req, res) {
     fs.readFile(filePath, 'utf8', function (err, data) {
