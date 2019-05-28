@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小案例</title>
+</head>
+
+<body>
+    <script>
+        //1.字符串转驼峰的方法
+        let str = 'hello-vue-and-node'
+        //1-1字符串截取
+        function firstLetterToUp(str) {
+            let arr = str.split('-')
+            for (let i = 1; i < arr.length; i++) {
+                arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1)
+            }
+            return arr.join('')
+        }
+        //1-2正则表达式
+        function firstLetterToUp1(str) {
+            let reg = /-(\w)/g
+            return str.replace(reg, function (s1, s2) {
+                return s2.toUpperCase()
+            })
+        }
+        console.log(firstLetterToUp(str))
+        console.log(firstLetterToUp1(str))
+
+
+        //2.字符串中出现次数最多的字符以及次数
+        let str1 = 'sdfhvvvvjkshfvvvvdjhsjfhjskvvvhfjkshdfhskj'
+        function getMaxStr(str) {
+            let obj = {}
+            let max = 0
+            let val
+            for (let i = 0; i < str.length; i++) {
+                if (!obj[str[i]]) {
+                    obj[str[i]] = []
+                }
+                obj[str[i]].push(str[i])
+            }
+            for (let item in obj) {
+                if (max < obj[item].length) {
+                    max = obj[item].length
+                    val = item
+                }
+            }
+            return { val, max }
+        }
+        console.log(getMaxStr(str1))
+
+
+
+    </script>
+</body>
+
+</html>
