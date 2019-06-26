@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟mvvm</title>
+</head>
+<body>
+    <div id="app">
+        <section>学校的名字是：{{ school.name }}---{{ number }}</section>
+        <section>学校的年龄是：{{ school.age }}</section>
+        <input type="text" v-model="school.name" placeholder="学校名称">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div>{{msg}}</div>
+    </div>
+    <script src="./compile.js"></script>
+    <script src="./observe.js"></script>
+    <script src="./mvvm.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                school: {
+                    name: '慕尼黑大学',
+                    age: 100
+                },
+                msg: '模拟MVVM',
+                number:123
+            }
+        })
+    </script>
+</body>
+
+</html>

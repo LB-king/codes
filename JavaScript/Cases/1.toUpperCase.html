@@ -54,7 +54,15 @@
         console.log(getMaxStr(str1))
 
 
-
+        var a = str1.split('').reduce((acc, cur) => {
+            if (cur in acc) {
+                acc[cur]++
+            } else {
+                acc[cur] = 1
+            }
+            return acc
+        }, {})
+        console.log(a)
     </script>
 </body>
 
